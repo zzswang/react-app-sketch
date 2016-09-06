@@ -107,7 +107,7 @@ npm run deploy -- machine:/path/to/deploy/
 **Note**: If you want to put the app in a sub path, like http://you.domain/texas/, plz modify the baseUrl in the config/production.json.
 
 #### 4. **Update from sketch**
-It is impossible to run everything perfect with one time shot, we need to track up with the sketch improvements, make sure up-to-date.
+It is impossible to make everything perfect with one time shot, we need to track up with the sketch improvements, make sure up-to-date.
 run `git fetch sketch master`, and do the merge work `git merge sketch/master`
 
 
