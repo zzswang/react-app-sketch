@@ -1,0 +1,10 @@
+{
+  "app": {
+    "baseUrl": ""
+  },
+  "service": {
+    "fake": true,
+    "gateway": "http://localhost:8080",
+    "port": 8080
+  }
+}

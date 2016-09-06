@@ -1,0 +1,16 @@
+{
+  "presets": ["es2015", "stage-0", "react"],
+  "plugins": ["transform-decorators-legacy"],
+  "env": {
+    "development": {
+      "presets": ["react-hmre"],
+      "plugins": ["react-hot-loader/babel"]
+    },
+    "production": {
+    }
+  },
+  "ignore": [
+    "*/**/*.min.js",
+    "*.csv"
+  ]
+}

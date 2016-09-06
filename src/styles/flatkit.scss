@@ -1,0 +1,268 @@
+@media (max-width: 543px) {
+  .w-auto-xs {
+    width: auto;
+  }
+  .navbar {
+    border-radius: .25rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .box,
+  .box-color,
+  .margin {
+    margin-bottom: 1rem;
+  }
+}
+
+.navbar {
+  border: none;
+  margin: 0;
+  padding: 0 1rem;
+  flex-shrink: 0;
+  min-height: 3.5rem;
+}
+
+.box,
+.box-color {
+  background-color: #fff;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.pull-center .navbar-brand {
+  margin-left: -50%;
+  float: left;
+}
+
+.navbar-brand {
+  padding: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.navbar-brand,
+.navbar-item,
+.navbar-nav>.nav-item>.nav-link,
+.navbar-nav>.nav-link {
+  padding: 0;
+  line-height: 3.5rem;
+  white-space: nowrap;
+}
+
+.navbar-brand>span {
+  display: inline-block;
+  line-height: .8;
+  margin-left: 10px;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-xxl {
+  width: 320px;
+}
+
+.p-a-md {
+  padding: 1.5rem!important;
+}
+
+.p-b-md,
+.p-y-md {
+  padding-bottom: 1.5rem!important;
+}
+
+.p-t-md,
+.p-y-md {
+  padding-top: 1.5rem!important;
+}
+
+.pull-center {
+  position: absolute;
+  left: 50%;
+}
+
+.text-color {
+  color: rgba(0, 0, 0, .87);
+}
+
+.text-sm {
+  font-size: .8rem;
+}
+
+.r {
+  border-radius: 3px;
+}
+
+.m-a {
+  margin: 1rem!important;
+}
+
+.box-shadow-z1,
+.box-shadow-z1 .box,
+.box-shadow-z1 .box-color {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .1), 0 -1px 0 rgba(0, 0, 0, .02);
+}
+
+.m-b,
+.m-y {
+  margin-bottom: 1rem!important;
+}
+
+.black,
+.danger,
+.dark,
+.grey,
+.info,
+.primary,
+.success,
+.warn,
+.warning {
+  color: rgba(255, 255, 255, .87);
+}
+
+.dark {
+  background-color: #2e3e4e;
+}
+
+.md-form-group {
+  padding: 18px 0 24px;
+  position: relative;
+}
+
+.md-input {
+  background: 0 0;
+  position: relative;
+  z-index: 5;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(160, 160, 160, .2);
+  width: 100%;
+  height: 34px;
+  padding: 2px;
+  color: inherit;
+}
+
+:focus {
+  outline: 0!important;
+}
+
+.md-input.focus,
+.md-input:focus {
+  border-color: #0cc2aa;
+  border-bottom-width: 2px;
+  padding-bottom: 1px;
+}
+
+.float-label .md-input~label {
+  top: 20px;
+  font-size: 1em;
+}
+
+.md-input.focus~label,
+.md-input:focus~label {
+  color: #0cc2aa;
+  opacity: 1;
+  top: 0!important;
+  font-size: .85em!important;
+}
+
+.md-input~label {
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  position: absolute;
+  z-index: 0;
+  opacity: .5;
+  left: 0;
+}
+
+.float-label .md-input.has-value~label,
+.float-label .md-input.ng-dirty~label,
+.md-input~label {
+  top: 0;
+  font-size: .85em;
+}
+
+.md-btn,
+.md-check,
+.md-input~label,
+.w-16,
+.w-20,
+.w-24,
+.w-32,
+.w-48,
+.w-56,
+.w-8 {
+  display: inline-block;
+}
+
+.md-check {
+  cursor: pointer;
+  padding-left: 1.25rem;
+  margin: 0;
+  position: relative;
+}
+
+.btn {
+  font-weight: 500;
+  outline: 0!important;
+  border-width: 0;
+  padding: .4375rem 1rem;
+}
+
+.p-l-md,
+.p-x-md {
+  padding-left: 1.5rem!important;
+}
+
+.p-r-md,
+.p-x-md {
+  padding-right: 1.5rem!important;
+}
+
+.primary {
+  background-color: #0cc2aa;
+}
+
+.navbar-brand:hover,
+.pagination>li>a,
+a,
+a:focus,
+a:hover {
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  color: inherit;
+}
+
+a:hover {
+  outline: 0;
+}
+
+a {
+  outline: 0;
+}
+
+.label.no-bg,
+a,
+pre {
+  color: inherit;
+}
+
+.md-btn,
+.pointer,
+.ui-check,
+.ui-switch,
+a {
+  cursor: pointer;
+}
+
+

@@ -1,0 +1,49 @@
+# Build - Build necessary JS files
+# Test - Run tests
+# Deploy - Deploy application to S3/ElasticBeanstalk
+stages:
+  - build
+  - test
+  - deploy
+
+# Configuration
+variables:
+  AWS_ACCESS_KEY_ID: "" # Should have access to both S3/EB
+
+before_script:
+  - if [ $CI_BUILD_REF_NAME == master ];
+    then
+      export BASE_URL=texas;
+    else
+      export BASE_URL=texas/$CI_BUILD_REF_NAME;
+    fi
+  - echo $BASE_URL
+
+# Job: Build
+# Installs npm packages, transpiles ES6 -> ES5
+# Passes node_modules/, dist/ onto next steps using artifacts
+build:
+  stage: build
+  script:
+    - cnpm install
+    - BASE_URL=$BASE_URL NODE_ENV=production npm run build
+  artifacts:
+    paths:
+      - dist/
+
+# Job: Test
+# Run tests against our application
+# If this fails, we do not deploy
+test:
+  stage: test
+  script:
+    - npm run test
+
+# Job: Deploy
+# Zips the contents of our built application, uploads to S3
+# Configures a new EB version and switches to that version
+deploy:
+  stage: deploy
+  script:
+    - ssh root@your-machine "mkdir -p /var/www/$BASE_URL"
+    - npm run deploy -- root@focus-web:/var/www/$BASE_URL/
