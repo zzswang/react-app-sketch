@@ -61,7 +61,9 @@ export const devConfig = {
             {test: /\.(jpe?g|png|gif)$/i, loader: 'url?limit=10240&name=images/[name].[ext]'},
             {test: /\.ico$/, loader: 'file?name=[name].[ext]'},
             {test: /(\.css|\.scss)$/, loader: 'style!css?sourceMap!sass?sourceMap'},
-            {test: /\.csv$/, loader: 'dsv' } //will load all .csv files with dsv-loader by default
+            {test: /\.csv$/, loader: 'dsv'}, //will load all .csv files with dsv-loader by default
+            {test: /\.json$/, loader: "json"},
+            {test: /\.md$/, loader: "html!markdown"}
         ]
     },
     sassLoader: {
@@ -101,7 +103,9 @@ export const prodConfig = {
             {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file?name=fonts/[name].[ext]'},
             {test: /\.ttf(\?v=\d+.\d+.\d+)?$/, loader: 'file?limit=10000&mimetype=application/octet-stream&name=fonts/[name].[ext]'},
             {test: /\.svg(\?v=\d+.\d+.\d+)?$/, loader: 'file?limit=10000&mimetype=image/svg+xml&name=fonts/[name].[ext]'},
-            {test: /\.csv$/, loader: 'dsv' } //will load all .csv files with dsv-loader by default
+            {test: /\.csv$/, loader: 'dsv'}, //will load all .csv files with dsv-loader by default
+            {test: /\.json$/, loader: "json"},
+            {test: /\.md$/, loader: "html!markdown"}
         ]
     },
     sassLoader: devConfig.sassLoader,

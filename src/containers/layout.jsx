@@ -36,9 +36,6 @@ export default class Layout extends React.Component {
             <a className="pull-right" role="button" onClick={this.logout.bind(this)}>退出</a>
           </div>
 
-          <h3>Welcome to our Own React Framework.</h3>
-          <p>View Details on github</p>
-
           {/* main content body */}
           <div className="app-body">
             {this.props.children}
