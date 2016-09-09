@@ -1,9 +1,11 @@
 import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
-import {connect} from 'react-redux';
-
+import { connect } from 'react-redux';
 import securer from '../middlewares/securer';
 import * as sessionActions from '../actions/session';
+import ReadMe from '../components/readme';
+import brandImg from '../images/brand.jpg';
+
 
 const mapStateToProps = state => ({
   session: state.session,
@@ -29,7 +31,7 @@ export default class Layout extends React.Component {
     return (
       <section>
         {/* main content */}
-        <div id="content" role="main" style={{padding: '0 15px'}}>
+        <div id="content" role="main">
 
           {/* head of main content */}
           <div style={{padding: '15px', overflow: 'hidden'}}>
@@ -38,7 +40,8 @@ export default class Layout extends React.Component {
 
           {/* main content body */}
           <div className="app-body">
-            {this.props.children}
+            <img style={{marginBottom: '20px', width: '100%'}} src={brandImg} alt="relax" />
+            <ReadMe />
           </div>
         </div>
       </section>
