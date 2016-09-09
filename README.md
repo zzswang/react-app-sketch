@@ -8,7 +8,7 @@ Pure web app, build with React and Redux, ES6 anywhere.
 
 | **Tech** | **Description** |**Learn More**|
 |----------|-------|---|
-|  [React](https://facebook.github.io/react/)  |   Fast, composable client-side components.    | [Pluralsight Course](https://www.pluralsight.com/courses/react-flux-building-applications) [Reate Gitbook](https://hulufei.gitbooks.io/react-tutorial/content) |
+|  [React](https://facebook.github.io/react/)  |   Fast, composable client-side components.    | [Pluralsight Course](https://www.pluralsight.com/courses/react-flux-building-applications) [React Gitbook](https://hulufei.gitbooks.io/react-tutorial/content) |
 |  [Redux](http://redux.js.org) |  Enforces unidirectional data flows and immutable, hot reloadable store. Supports time-travel debugging. Lean alternative to [Facebook's Flux](https://facebook.github.io/flux/docs/overview.html).| [Pluralsight Course](http://www.pluralsight.com/courses/react-redux-react-router-es6)  [Redux gitbook](http://cn.redux.js.org/index.html)  |
 |  [React-Router](https://github.com/reactjs/react-router) | A complete routing library for React | [Pluralsight Course](https://www.pluralsight.com/courses/react-flux-building-applications)  [react-router gitbook](http://react-guide.github.io/react-router-cn)|
 |  [Babel](http://babeljs.io) |  Compiles ES6 to ES5. Enjoy the new version of JavaScript today.     | [ES6 REPL](https://babeljs.io/repl/), [ES6 vs ES5](http://es6-features.org), [ES6 Katas](http://es6katas.org), [Pluralsight course](https://www.pluralsight.com/courses/javascript-fundamentals-es6)    |
