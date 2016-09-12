@@ -4,7 +4,7 @@
 [![Dependency Status](https://david-dm.org/coryhouse/react-slingshot.svg?style=flat-square)](https://david-dm.org/coryhouse/react-slingshot)
 [![Coverage Status](https://coveralls.io/repos/github/coryhouse/react-slingshot/badge.svg?branch=master)](https://coveralls.io/github/coryhouse/react-slingshot?branch=master)
 
-Pure web app, build with React and Redux, ES6 anywhere. 
+Good starter scallfold, pure web app, build with React and Redux, ES6 anywhere. Single page app, push state friendly, deploy with docker.
 
 | **Tech** | **Description** |**Learn More**|
 |----------|-------|---|
@@ -37,8 +37,6 @@ Before you start, take a moment to see how the project structure looks like:
 ├── dist/                       # The folder for compiled output
 ├── config                      # configuration use node-config
 │   └── default.json
-├── mocks                       # fake business logic, just for dev
-│   └── index.js
 ├── package.json                # package definition
 ├── src                         # all source code written for this app
 │   ├── 404.html                # 404 page
@@ -57,7 +55,6 @@ Before you start, take a moment to see how the project structure looks like:
 │   ├── index.jsx               # entry file
 │   ├── middlewares             # middlewares for react, redux & router
 │   │   ├── apiError.js
-│   │   ├── securer.jsx
 │   │   └── wrapperHeader.js
 │   ├── reducers                # react reducers
 │   │   ├── index.js
@@ -97,6 +94,8 @@ This will run the automated build process, start up a fake api server, and open 
 
 #### 3. **Deploy the app** 
 
+**deploy with command line**
+
 ```
 cp config/default.json config/production.json
 // editing this file, and save
@@ -105,6 +104,17 @@ npm run deploy -- machine:/path/to/deploy/
 ```
 
 **Note**: If you want to put the app in a sub path, like http://you.domain/texas/, plz modify the baseUrl in the config/production.json.
+
+
+**deploy with docker**
+
+```
+// it will build an image defined in your package.json
+npm run docker
+
+// export you image to somewhere else, run it
+docker run -d -p 80:80 your_image
+```
 
 #### 4. **Update from sketch**
 It is impossible to make everything perfect with one time shot, we need to track up with the sketch improvements, make sure up-to-date.

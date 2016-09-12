@@ -1,6 +1,6 @@
 import { browserHistory } from 'react-router';
 import { CALL_API } from 'redux-api-middleware';
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from '../constants';
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, GET_RESOURCES_REQUEST, GET_RESOURCES_SUCCESS, GET_RESOURCES_FAIL } from '../constants';
 
 
 export function restoreSessionFromLocalStorage() {
@@ -35,5 +35,15 @@ export function logout() {
   browserHistory.push('/login');
   return {
     type: LOGOUT,
+  };
+}
+
+export function requestProtectedResources() {
+  return {
+    [CALL_API]: {
+      endpoint: '/api/protected/resources',
+      method: 'get',
+      types: [GET_RESOURCES_REQUEST, GET_RESOURCES_SUCCESS, GET_RESOURCES_FAIL],
+    },
   };
 }

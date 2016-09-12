@@ -40,7 +40,7 @@ export default class LoginPage extends React.Component {
           </div>
           <form role="form" ref={loginForm => { this.loginForm = loginForm; }}>
             <div className="md-form-group float-label">
-              <input type="email" className="md-input" name="email" required="" />
+              <input type="email" className="md-input" name="email" required="" placeholder="admin@36node.com" />
               <label htmlFor="email">邮箱</label>
             </div>
             <div className="md-form-group float-label">

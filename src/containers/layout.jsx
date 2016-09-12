@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import securer from '../middlewares/securer';
 import * as sessionActions from '../actions/session';
 import ReadMe from '../components/readme';
 import brandImg from '../images/brand.jpg';
@@ -15,11 +14,14 @@ const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators({...sessionActions}, dispatch),
 });
 
-@securer
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Layout extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount() {
+    this.props.actions.requestProtectedResources();
   }
 
   logout(e) {
