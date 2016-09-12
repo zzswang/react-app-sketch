@@ -9,6 +9,7 @@ import './styles/main.scss';
 import routes from './routes';
 import configureStore from './store';
 import { restoreSessionFromLocalStorage } from './actions/session';
+import { baseUrl } from './config';
 
 
 function withBasename(history, dirname) {
@@ -17,13 +18,9 @@ function withBasename(history, dirname) {
 
 // start app
 const store = configureStore();
+
 // get session back
 store.dispatch(restoreSessionFromLocalStorage());
-
-let baseUrl = __BASE__;
-if (baseUrl && baseUrl.charAt(0) === '/') {
-  baseUrl = baseUrl.substring(1);
-}
 
 render(
   <Provider store={store}>

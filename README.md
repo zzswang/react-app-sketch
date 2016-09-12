@@ -34,7 +34,7 @@ Before you start, take a moment to see how the project structure looks like:
 │   ├── release.js              # script help to release
 │   ├── service.js              # start the fake api service
 │   └── start.js                # jump to the development
-├── build                       # The folder for compiled output
+├── dist/                       # The folder for compiled output
 ├── config                      # configuration use node-config
 │   └── default.json
 ├── mocks                       # fake business logic, just for dev

@@ -2,6 +2,7 @@ import { browserHistory } from 'react-router';
 import { CALL_API } from 'redux-api-middleware';
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from '../constants';
 
+
 export function restoreSessionFromLocalStorage() {
   return {
     type: LOGIN_SUCCESS,

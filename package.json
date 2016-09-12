@@ -1,5 +1,5 @@
 {
-  "name": "demo",
+  "name": "react-app-sketch",
   "version": "0.1.0",
   "description": "react es6 redux react-router webpack sketch",
   "main": "./src",
@@ -7,14 +7,21 @@
     "start": "babel-node bin/start.js",
     "build": "webpack --color --profile",
     "deploy": "scp -r dist/*",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "docker:build": "docker build -t react-app-sketch:0.1.0 ./"
   },
   "repository": {
     "type": "git",
     "url": ""
   },
   "keywords": [
-    "demo"
+    "webpack",
+    "browserSync",
+    "react",
+    "redux",
+    "start",
+    "quick",
+    "example"
   ],
   "author": "zzswang",
   "license": "ISC",
@@ -44,6 +51,7 @@
     "eslint-plugin-react": "^6.0.0",
     "exports-loader": "0.6.3",
     "express": "4.14.0",
+    "express-http-proxy": "0.10.0",
     "express-jwt": "3.4.0",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
