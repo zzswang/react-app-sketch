@@ -1,8 +1,9 @@
-import 'github-markdown-css';
 import React from 'react';
-import readme from '../../../README.md';
-import './style.scss';
+import 'github-markdown-css';
 
+import readme from '../../../README.md';
+
+import './style.scss';
 
 export default function ReadMe() {
   return (
