@@ -3,6 +3,6 @@ MAINTAINER zzswang@gmail.com
 
 ENV BASE_URL=/data \
     API_REGEX=/api_vd? \ 
-    API_GATEWAY=https://api.your.domain
+    API_GATEWAY=https://api.36node.com
 
 COPY ./dist /app
