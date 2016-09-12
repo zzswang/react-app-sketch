@@ -9,6 +9,7 @@ export default class ReadMe extends React.Component {
     super(props);
   }
 
+  /* eslint-disable */
   render() {
     return (
       <div>
@@ -17,4 +18,5 @@ export default class ReadMe extends React.Component {
       </div>
     );
   }
+  /* eslint-disable */
 }
