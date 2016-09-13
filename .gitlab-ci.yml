@@ -8,16 +8,7 @@ stages:
 
 # Configuration
 variables:
-  AWS_ACCESS_KEY_ID: "" # Should have access to both S3/EB
-
-before_script:
-  - if [ $CI_BUILD_REF_NAME == master ];
-    then
-      export BASE_URL=texas;
-    else
-      export BASE_URL=texas/$CI_BUILD_REF_NAME;
-    fi
-  - echo $BASE_URL
+  AWS_ACCESS_KEY_ID: "" # Example for access key
 
 # Job: Build
 # Installs npm packages, transpiles ES6 -> ES5
@@ -26,7 +17,7 @@ build:
   stage: build
   script:
     - cnpm install
-    - BASE_URL=$BASE_URL NODE_ENV=production npm run build
+    - NODE_ENV=production npm run build
   artifacts:
     paths:
       - dist/
@@ -45,5 +36,5 @@ test:
 deploy:
   stage: deploy
   script:
-    - ssh root@your-machine "mkdir -p /var/www/$BASE_URL"
-    - npm run deploy -- root@focus-web:/var/www/$BASE_URL/
+    - ssh root@your-machine "mkdir -p /path/to/deploy"
+    - npm run deploy -- root@your-machine:/path/to/deploy/

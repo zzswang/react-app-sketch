@@ -1,10 +1,10 @@
 {
   "app": {
+    "title": "React App Sketch",
     "baseUrl": ""
   },
   "service": {
-    "fake": true,
-    "gateway": "http://localhost:8080",
-    "port": 8080
+    "api_regex": "/api",
+    "api_gateway": "https://api.focusgroup.tech"
   }
 }

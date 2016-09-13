@@ -3,12 +3,12 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import config from 'config';
+import project from './package.json';
 
 
 const isVerbose = false;
 const GLOBALS = {
     __DEV__: process.env.NODE_ENV === 'production',
-    __BASE__: JSON.stringify(process.env.BASE_URL || config.app.baseUrl),
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
 };
 
@@ -30,7 +30,7 @@ export const devConfig = {
     },
     plugins: [
         new webpack.DefinePlugin(GLOBALS),
-        new HtmlWebpackPlugin({template: './src/index.html'}),
+        new HtmlWebpackPlugin({template: './src/index.html', version: project.version, ...config.app}),
         new HtmlWebpackPlugin({filename: '404.html', template: './src/404.html', inject: false}),
         new HtmlWebpackPlugin({filename: '500.html', template: './src/500.html', inject: false}),
         new webpack.HotModuleReplacementPlugin(),
@@ -86,7 +86,7 @@ export const prodConfig = {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.DefinePlugin(GLOBALS),
         new ExtractTextPlugin("styles/main.css", {allChunks: true}),
-        new HtmlWebpackPlugin({template: './src/index.html'}),
+        new HtmlWebpackPlugin({template: './src/index.html', version: project.version, ...config.app}),
         new HtmlWebpackPlugin({filename: '404.html', template: './src/404.html', inject: false}),
         new HtmlWebpackPlugin({filename: '500.html', template: './src/500.html', inject: false}),
         new webpack.optimize.DedupePlugin(),
