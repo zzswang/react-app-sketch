@@ -3,25 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>404</title>
+    <title>500</title>
     <link rel="shortcut icon" href="/favicon.ico">
-    <link href="/styles/main.css" type="text/css" rel="stylesheet">
+    
+    <style type="text/css">
+      html, body { margin:0;padding:0; }
+      .container {
+        position:relative;
+        margin:100px auto 0;
+        width:600px;
+        height:367px;
+        background: url('/images/oops.png') no-repeat;
+        background-size:cover;
+      }
+      .container a {
+        position:absolute;
+        top:220px;
+        left:33px;
+        padding:10px 20px;
+        border:1px solid #ff8201;
+        border-radius:5px;
+        text-decoration:none;
+        color:#ff8201;
+      }
+    </style>
 </head>
 <body>
-  <div class="app" id="app">
-
-    <div class="app-body indigo bg-auto w-full">
-      <div class="text-center pos-rlt p-y-md">
-        <h1 class="text-shadow text-white text-4x">
-          <span class="text-2x font-bold block m-t-lg">505</span>
-        </h1>
-        <p class="h5 m-y-lg text-u-c font-bold">Don't worry, we will fix it soon.</p>
-        <p>
-          Thanks!
-        </p>
-      </div>
-    </div>
-
+  <div class="container">
+    <a href="javascript:history.back();">Go Back</a>
   </div>
 </body>
 </html>

@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 import securer from '../middlewares/securer';
 import * as sessionActions from '../actions/session';
 import ReadMe from '../components/readme';
-import brandImg from '../images/brand.jpg';
 
+import brandImg from '../images/brand.jpg';
+import '../images/marker.png';
+import '../images/map.png';
+import '../images/oops.png';
 
 const mapStateToProps = state => ({
   session: state.session,

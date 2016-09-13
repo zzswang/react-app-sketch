@@ -5,24 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>404</title>
     <link rel="shortcut icon" href="/favicon.ico">
-    <link href="/styles/main.css" type="text/css" rel="stylesheet">
+    <style type="text/css">
+      html, body { margin:0;padding:0;background-color:#a5d8e9; }
+      .container {
+        margin:10vh auto;
+        width:30vw;
+        height:80vh;
+        font-family:Arial;
+      }
+      .container > div { text-align:center; }
+      ._404 { font-size:120px; }
+      ._404 span { color:#91c41d; }
+      ._404 img { height:100px;vertical-align:bottom; }
+      ._404-map { margin-top:3px; }
+
+      @-webkit-keyframes spin { 
+        from { 
+          -webkit-transform: rotate(0deg); 
+        } to { 
+          -webkit-transform: rotate(360deg); 
+        }
+      }
+      ._404-map img {
+        width:200px;
+        -webkit-animation:spin 20s linear infinite;
+      }
+    </style>
 </head>
 <body>
-  <div class="app" id="app">
-
-    <div class="app-body amber bg-auto w-full">
-      <div class="text-center pos-rlt p-y-md">
-        <h1 class="text-shadow m-a-0 text-white text-4x">
-          <span class="text-2x font-bold block m-t-lg">404</span>
-        </h1>
-        <h2 class="h1 m-y-lg text-black">OOPS!</h2>
-        <p class="h5 m-y-lg text-u-c font-bold text-black">Sorry! the page you are looking for doesn't exist.</p>
-        <a href="javascript:history.back()" class="md-btn amber-700 md-raised p-x-md">
-          <span class="text-white">Go Back</span>
-        </a>
-      </div>
+  <div class="container">
+    <div class="_404"><span>4</span><img src="/images/marker.png" alt="0" /><span>4</span></div>
+    <div class="_404-map"><img src="/images/map.png"></div>
+    <div class="_404-info">
+      <p>Sorry! the page you are looking for doesn't exist.</p>
+      <a href="javascript:history.back()">Go Back</a>
     </div>
-
   </div>
 </body>
 </html>
