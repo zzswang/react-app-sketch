@@ -18,7 +18,7 @@ browserSync({
   middleware: [
     {route: config.service.api_regex, handle: apiService},
     historyApiFallback(),
-    webpackDevMiddleware(bundler, {publicPath:'http://localhost:3000/', stats: devConfig.stats, noInfo: false}),
+    webpackDevMiddleware(bundler, {publicPath:'/', stats: devConfig.stats, noInfo: false}),
     webpackHotMiddleware(bundler),
   ],
   files: ['src/*', 'src/routes/*'],

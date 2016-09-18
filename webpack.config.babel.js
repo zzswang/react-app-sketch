@@ -26,7 +26,6 @@ export const devConfig = {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'scripts/main.js',
-        publicPath: 'http://localhost:3000/',
     },
     plugins: [
         new webpack.DefinePlugin(GLOBALS),
@@ -80,7 +79,7 @@ export const prodConfig = {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'scripts/main.js',
-        publicPath: path.join('/', process.env.BASE_URL || '', '/'),
+        publicPath: path.join('/', config.app.baseUrl || '', '/'),
     },
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
