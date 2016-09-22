@@ -1,7 +1,3 @@
-/**
- * Test store addons
- */
-
 import chai, { expect } from 'chai';
 import configureStore from '../store';
 
