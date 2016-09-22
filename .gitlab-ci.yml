@@ -4,6 +4,7 @@
 stages:
   - build
   - test
+  - release
   - deploy
 
 # Configuration
@@ -28,7 +29,17 @@ build:
 test:
   stage: test
   script:
+    - cnpm install
+    - npm run lint
     - npm run test
+
+release-image:
+  stage: release
+  script:
+    - cnpm install
+    - npm run build:docker
+  only:
+    - master
 
 # Job: Deploy
 # Zips the contents of our built application, uploads to S3
@@ -38,3 +49,5 @@ deploy:
   script:
     - ssh root@your-machine "mkdir -p /path/to/deploy"
     - npm run deploy -- root@your-machine:/path/to/deploy/
+  only:
+    - master
