@@ -41,7 +41,7 @@ Before you start, take a moment to see how the project structure looks like:
 ├── src                         # all source code written for this app
 │   ├── 404.html                # 404 page
 │   ├── 500.html                # 500 page
-│   ├── actions                 # react actions 
+│   ├── actions                 # react actions
 │   │   └── session.js
 │   ├── constants.js            # const constants
 │   ├── containers              # container components, connect to store
@@ -81,18 +81,22 @@ Before you start, take a moment to see how the project structure looks like:
 #### 1. **get the latest version**
 
 ```
-$ git clone -o sketch -b master --single-branch \
+git clone -o sketch -b master --single-branch \
       https://github.com/zzswang/react-app-sketch.git MyApp
-$ cd MyApp
+cd MyApp
+
+// connect to your own repository
+git remote add origin your-app-repository
+git push -u origin master
 ```
 
 #### 2. **Install Node packages && Run the app**
 
 run `npm install && npm start`
 
-This will run the automated build process, start up a fake api server, and open the application in your default browser. When doing development with this kit, this command will continue watching files all your files. Every time you hit save the code is rebuilt, linting runs, and tests run automatically. 
+This will run the automated build process, start up a fake api server, and open the application in your default browser. When doing development with this kit, this command will continue watching files all your files. Every time you hit save the code is rebuilt, linting runs, and tests run automatically.
 
-#### 3. **Deploy the app** 
+#### 3. **Deploy the app**
 
 **deploy with command line**
 
