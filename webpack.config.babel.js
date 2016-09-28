@@ -11,6 +11,8 @@ const GLOBALS = {
   __DEV__: process.env.NODE_ENV === 'production',
   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
 };
+
+// also read configuration from envrionments
 appConfig.baseUrl = process.env.APP_BASE_URL || appConfig.baseUrl || '';
 appConfig.title = process.env.APP_TITLE || appConfig.title || '';
 
