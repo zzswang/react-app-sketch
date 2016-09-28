@@ -4,7 +4,8 @@
     "baseUrl": ""
   },
   "service": {
+    "mock": true,
     "api_regex": "/api",
-    "api_gateway": "https://api.focusgroup.tech"
+    "api_gateway": "http://api.36node.com"
   }
 }
