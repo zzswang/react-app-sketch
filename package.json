@@ -5,9 +5,7 @@
   "main": "./src",
   "scripts": {
     "build": "webpack --color --profile",
-    "build:docker": "npm run build && docker build -t zzswang/react-app-sketch .",
     "clear": "rm -rf dist",
-    "docker": "docker build -t react-app-sketch:0.1.0 ./",
     "deploy": "scp -r dist/*",
     "lint": "eslint src",
     "start": "babel-node bin/start.js",
