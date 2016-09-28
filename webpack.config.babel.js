@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import config from 'config';
+import { app as appConfig } from 'config';
 import project from './package.json';
 
 
@@ -11,6 +11,8 @@ const GLOBALS = {
   __DEV__: process.env.NODE_ENV === 'production',
   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
 };
+appConfig.baseUrl = process.env.APP_BASE_URL || appConfig.baseUrl || '';
+appConfig.title = process.env.APP_TITLE || appConfig.title || '';
 
 export const devConfig = {
   debug: true,
@@ -29,7 +31,7 @@ export const devConfig = {
   },
   plugins: [
     new webpack.DefinePlugin(GLOBALS),
-    new HtmlWebpackPlugin({template: './src/index.html', version: project.version, ...config.app}),
+    new HtmlWebpackPlugin({template: './src/index.html', version: project.version, ...appConfig}),
     new HtmlWebpackPlugin({filename: '404.html', template: './src/404.html', inject: false}),
     new HtmlWebpackPlugin({filename: '500.html', template: './src/500.html', inject: false}),
     new webpack.HotModuleReplacementPlugin(),
@@ -83,13 +85,13 @@ export const prodConfig = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'scripts/main.js',
-    publicPath: path.join('/', config.app.baseUrl || '', '/'),
+    publicPath: path.join('/', appConfig.baseUrl, '/'),
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin(GLOBALS),
     new ExtractTextPlugin("styles/main.css", {allChunks: true}),
-    new HtmlWebpackPlugin({template: './src/index.html', version: project.version, ...config.app}),
+    new HtmlWebpackPlugin({template: './src/index.html', version: project.version, ...appConfig}),
     new HtmlWebpackPlugin({filename: '404.html', template: './src/404.html', inject: false}),
     new HtmlWebpackPlugin({filename: '500.html', template: './src/500.html', inject: false}),
     new webpack.optimize.DedupePlugin(),
