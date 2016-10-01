@@ -1,15 +1,18 @@
 # Build - Build necessary JS files
 # Test - Run tests
-# Deploy - Deploy application to S3/ElasticBeanstalk
+# Deploy - Deploy application to static web/docker images/npm registry
 stages:
   - build
   - test
-  - release
   - deploy
 
 # Configuration
 variables:
   AWS_ACCESS_KEY_ID: "" # Example for access key
+  CONTAINER_IMAGE: 36node/react-app-sketch:$CI_BUILD_TAG
+  CONTAINER_RELEASE_IMAGE: 36node/react-app-sketch:latest
+  CI_BRANCH: ci/building_$CI_BUILD_ID
+  DEPLOY_PATH: root@yourmachine:/path/to/app
 
 cache:
   paths:
@@ -19,16 +22,36 @@ cache:
   untracked: true
 
 # Job: Build
-# Installs npm packages, transpiles ES6 -> ES5
-# Passes node_modules/, dist/ onto next steps using artifacts
+# Build dist
 build:
   stage: build
+  before_script:
+    - echo "building branch:$CI_BUILD_REF_NAME tag:$CI_BUILD_TAG"
   script:
     - cnpm install
     - NODE_ENV=production npm run build
   artifacts:
     paths:
       - dist/
+
+# Job: Bump
+# Bump version
+bump:
+  stage: build
+  before_script:
+    - export CI_PUSH_REPO=`echo $CI_BUILD_REPO | perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#'`
+    - git config user.name "CI Builder"
+    - git config user.email "build@36node.com"
+    - git remote set-url --push origin "ssh://${CI_PUSH_REPO}"
+  script:
+    - git checkout -b $CI_BRANCH
+    - npm version patch -m "[CI SKIP] Bump version to %s by CI"
+    - git push origin ${CI_BRANCH}:${CI_BUILD_REF_NAME}
+  after_script:
+    - git checkout master
+    - git branch -D $CI_BRANCH
+  only:
+    - master
 
 # Job: Test
 # Run tests against our application
@@ -38,20 +61,34 @@ test:
   script:
     - npm run lint
     - npm run test
+  only:
+    - branches
+    - tags
 
-release-image:
-  stage: release
+# Job: release docker-image
+docker-image:
+  stage: deploy
   script:
-    - docker build -t zzswang/react-app-sketch:${CI_BUILD_TAG} .
+    - docker build -t $CONTAINER_IMAGE .
+    - docker tag $CONTAINER_IMAGE $CONTAINER_RELEASE_IMAGE
   only:
     - tags
 
-# Job: Deploy
-# Zips the contents of our built application, uploads to S3
-# Configures a new EB version and switches to that version
-deploy-demo:
+
+# Job: Deploy web
+web:
   stage: deploy
   script:
-    - npm run deploy -- root@yourmachine:/var/www/app
+    - npm run deploy -- ${DEPLOY_PATH}
   only:
+    - master
+    - tags
+
+# Job: npm bpulish
+publish:
+  stage: deploy
+  script:
+    - cnpm publish
+  only:
+    - tags
     - master
