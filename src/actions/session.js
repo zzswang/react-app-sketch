@@ -1,7 +1,7 @@
-import { browserHistory } from 'react-router';
-import { CALL_API } from 'redux-api-middleware';
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, GET_RESOURCES_REQUEST, GET_RESOURCES_SUCCESS, GET_RESOURCES_FAIL } from '../constants';
-
+import {browserHistory} from 'react-router';
+import {CALL_API} from 'redux-api-middleware';
+import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, GET_RESOURCES_REQUEST, GET_RESOURCES_SUCCESS, GET_RESOURCES_FAIL} from '../constants';
+import myHistory from '../config';
 
 export function restoreSessionFromLocalStorage() {
   return {
@@ -32,7 +32,7 @@ export function login(data) {
 
 export function logout() {
   localStorage.removeItem('session');
-  browserHistory.push('/login');
+  myHistory.push('/login');
   return {
     type: LOGOUT,
   };

@@ -1,20 +1,16 @@
 import 'babel-polyfill';
 import React from 'react';
 import useBasename from 'history/lib/useBasename';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
-import './favicon.ico';
-import './styles/main.scss';
+import {render} from 'react-dom';
+import {Provider} from 'react-redux';
+import {Router, browserHistory} from 'react-router';
+
 import routes from './routes';
 import configureStore from './store';
+import { baseUrl, myHisotry} from './config';
 import { restoreSessionFromLocalStorage } from './actions/session';
-import { baseUrl } from './config';
-
-
-function withBasename(history, dirname) {
-  return useBasename(() => history)({ basename: `/${dirname}` });
-}
+import './favicon.ico';
+import './styles/main.scss';
 
 // start app
 const store = configureStore();
@@ -24,6 +20,6 @@ store.dispatch(restoreSessionFromLocalStorage());
 
 render(
   <Provider store={store}>
-    <Router history={withBasename(browserHistory, baseUrl)} routes={routes} />
+    <Router history={myHisotry} routes={routes} />
   </Provider>, document.getElementById('app')
 );
