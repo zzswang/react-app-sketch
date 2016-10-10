@@ -2,4 +2,5 @@ export const {baseUrl, version} = JSON.parse(document.getElementById('app-config
 import useBasename from 'history/lib/useBasename';
 import {browserHistory} from 'react-router';
 
-export const myHistory = useBasename(() => browserHistory)({ basename: `/${baseUrl}` });
+const history = useBasename(() => browserHistory)({basename: `/${baseUrl}`});
+export {history as myHistory};
