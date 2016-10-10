@@ -6,8 +6,9 @@ import {Router} from 'react-router';
 
 import routes from './routes';
 import configureStore from './store';
-import { baseUrl, myHisotry} from './config';
-import { restoreSessionFromLocalStorage } from './actions/session';
+import {baseUrl, myHisotry} from './config';
+import {restoreSessionFromLocalStorage } from './actions/session';
+
 import './favicon.ico';
 import './styles/main.scss';
 
