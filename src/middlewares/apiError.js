@@ -1,7 +1,9 @@
 import { browserHistory } from 'react-router';
+import { ApiError } from 'redux-api-middleware';
+
 
 export default store => next => action => {
-  if (action.payload && action.payload.constructor.name === 'ApiError') {
+  if (action.payload instanceof ApiError) {
     // ApiError action
     switch (action.payload.status) {
       case 401:

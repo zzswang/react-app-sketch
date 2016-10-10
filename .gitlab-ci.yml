@@ -42,7 +42,7 @@ bump:
     - export CI_PUSH_REPO=`echo $CI_BUILD_REPO | perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#'`
     - git config user.name "CI Builder"
     - git config user.email "build@36node.com"
-    - git remote set-url --push origin "ssh://${CI_PUSH_REPO}"
+    - git remote set-url --push origin ${CI_PUSH_REPO}
   script:
     - git checkout -b $CI_BRANCH
     - npm version patch -m "[CI SKIP] Bump version to %s by CI"
