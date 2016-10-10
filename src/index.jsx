@@ -6,7 +6,7 @@ import {Router} from 'react-router';
 
 import routes from './routes';
 import configureStore from './store';
-import {baseUrl, myHisotry} from './config';
+import {baseUrl, myHistory} from './config';
 import {restoreSessionFromLocalStorage } from './actions/session';
 
 import './favicon.ico';
@@ -20,6 +20,6 @@ store.dispatch(restoreSessionFromLocalStorage());
 
 render(
   <Provider store={store}>
-    <Router history={myHisotry} routes={routes} />
+    <Router history={myHistory} routes={routes} />
   </Provider>, document.getElementById('app')
 );
