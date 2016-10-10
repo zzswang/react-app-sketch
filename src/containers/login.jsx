@@ -36,7 +36,7 @@ export default class LoginPage extends React.Component {
         </div>
         <div className="p-a-md box-color r box-shadow-z1 text-color m-a">
           <div className="m-b text-sm">
-            {this.props.error ? this.props.error.message : 'Sign in with your Account'}
+            {this.props.error && 'wrong password or username'}
           </div>
           <form role="form" ref={loginForm => { this.loginForm = loginForm; }}>
             <div className="md-form-group float-label">

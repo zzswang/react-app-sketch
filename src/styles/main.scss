@@ -1,2 +1,10 @@
 @import 'bootstrap/scss/bootstrap-flex';
 @import './flatkit';
+
+/* overwrite flatkit */
+.md-input ~ label{
+  transition: none 0s;
+}
+.float-label .md-input ~ label{
+  top: 0;
+}
