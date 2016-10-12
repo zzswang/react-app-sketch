@@ -1,13 +1,13 @@
-import { browserHistory } from 'react-router';
-import { ApiError } from 'redux-api-middleware';
-
+import {browserHistory} from 'react-router';
+import {ApiError} from 'redux-api-middleware';
+import {myHistory} from '../config';
 
 export default store => next => action => {
   if (action.payload instanceof ApiError) {
     // ApiError action
     switch (action.payload.status) {
       case 401:
-        browserHistory.push('/login');
+        myHistory.push('/login');
         break;
 
       case 404:
