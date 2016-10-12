@@ -1,4 +1,3 @@
-import {browserHistory} from 'react-router';
 import {ApiError} from 'redux-api-middleware';
 import {myHistory} from '../config';
 
