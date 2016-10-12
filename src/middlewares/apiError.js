@@ -15,6 +15,10 @@ export default store => next => action => {
         break;
 
       case 500:
+      case 501:
+      case 502:
+      case 503:
+      case 504:
       case 505:
         location.href = '/500.html';
         break;
