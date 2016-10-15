@@ -1,7 +1,7 @@
-import {browserHistory} from 'react-router';
 import {CALL_API} from 'redux-api-middleware';
 import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, GET_RESOURCES_REQUEST, GET_RESOURCES_SUCCESS, GET_RESOURCES_FAIL} from '../constants';
-import myHistory from '../config';
+import {myHistory} from '../config';
+
 
 export function restoreSessionFromLocalStorage() {
   return {
@@ -23,7 +23,7 @@ export function login(data) {
 
     if (action.type === LOGIN_SUCCESS) {
       localStorage.setItem('session', JSON.stringify(action.payload));
-      browserHistory.push(data.next || '/');
+      myHistory.push(data.next || '/');
     }
 
     return action;
